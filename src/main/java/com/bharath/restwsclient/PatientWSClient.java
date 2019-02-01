@@ -39,6 +39,8 @@ public class PatientWSClient {
 		
 		System.out.println(updateResponse.getStatus());
 		
+		updateResponse.close();
+		
 		//---------------Create Patient (POST)---------------
 		
 		Patient newPatient = new Patient();
@@ -49,6 +51,7 @@ public class PatientWSClient {
 		
 		System.out.println("Created Patient ID: " + createdPatient.getId());
 		
+		client.close();
 	}
 	
 }
