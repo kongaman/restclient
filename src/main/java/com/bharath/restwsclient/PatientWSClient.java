@@ -51,6 +51,18 @@ public class PatientWSClient {
 		
 		System.out.println("Created Patient ID: " + createdPatient.getId());
 		
+		
+		
+		//---------------Delete Patient (DELETE)---------------
+		
+		WebTarget deleteTarget = client.target(PATIENT_SERVICE_URL).path(PATIENTS).path("/{id}").resolveTemplate("id", 123);
+		Builder delRequest = deleteTarget.request();
+		Response deleteResp = delRequest.delete();
+		
+		System.out.println(deleteResp.getStatus());
+		
+		deleteResp.close();
+		
 		client.close();
 	}
 	
